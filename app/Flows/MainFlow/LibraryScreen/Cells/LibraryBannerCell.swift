@@ -57,6 +57,7 @@ final class LibraryBannerCell: UICollectionViewCell, Reusable {
         setupStackView()
         setupPageControll()
         
+        contentView.addCornerRadius(16.0)
         contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTap)))
     }
     

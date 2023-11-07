@@ -170,12 +170,13 @@ final class BookDetailsView: BaseView {
         scrollView.disableTranslateAutoresizingMask()
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.contentInset = .init(top: 0, left: 16.0, bottom: 0, right: 16.0)
         
         recommendedContentView.addSubview(scrollView)
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: recommendedContentView.leadingAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: recommendedContentView.leadingAnchor, constant: -16.0),
             scrollView.topAnchor.constraint(equalTo: recommendedHeaderLabel.bottomAnchor, constant: 16.0),
-            scrollView.trailingAnchor.constraint(equalTo: recommendedContentView.trailingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: recommendedContentView.trailingAnchor, constant: 16.0),
             scrollView.bottomAnchor.constraint(equalTo: recommendedContentView.bottomAnchor)
         ])
         

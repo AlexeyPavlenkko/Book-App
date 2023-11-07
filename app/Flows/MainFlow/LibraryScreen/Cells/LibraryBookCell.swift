@@ -84,7 +84,7 @@ final class LibraryBookCell: UICollectionViewCell, Reusable {
     func apply(_ configuration: Configuration) {
         imageView.setImage(from: configuration.coverUrl)
         
-        var paragraphStyle = NSMutableParagraphStyle()
+        let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 0.81
         let attr = NSAttributedString(string: configuration.titleText, attributes: [
             .font: AppResources.Shared.Fonts.nunitoSansSemiBold(ofSize: 16),
