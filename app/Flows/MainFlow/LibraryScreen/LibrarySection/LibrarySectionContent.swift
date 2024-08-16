@@ -7,16 +7,14 @@
 
 import Foundation
 
-protocol LibrarySectionContent { }
-
-struct LibraryBannerSectionContent: LibrarySectionContent {
+struct LibraryBannerSectionContent {
     
     let content: [BannerInfo]
     let clickAction: (Int) -> Void
     
 }
 
-struct LibraryBookSectionContent: LibrarySectionContent {
+struct LibraryBookSectionContent {
     
     let bookInfo: BookInfo
     

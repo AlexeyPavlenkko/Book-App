@@ -16,8 +16,15 @@ struct LibrarySection {
         
     }
     
+    enum RowCellType {
+        
+        case bannerCell(LibraryBannerSectionContent)
+        case bookCell(LibraryBookSectionContent)
+        
+    }
+    
     let title: String
     let type: SectionType
-    let rows: [LibrarySectionContent]
+    let rows: [RowCellType]
     
 }

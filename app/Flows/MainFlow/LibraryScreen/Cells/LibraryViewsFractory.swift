@@ -9,25 +9,20 @@ import UIKit
 
 struct LibraryViewsFractory {
     
-    static func cell(content: LibrarySectionContent, collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+    static func cell(content: LibrarySection.RowCellType, collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         switch content {
-        case is LibraryBannerSectionContent:
-            let bannerContent = content as! LibraryBannerSectionContent
+        case .bannerCell(let bannerContent):
             let bannerCell = collectionView.dequeueReusableCell(indexPath, cellType: LibraryBannerCell.self)
             bannerCell.apply(.init(slides: bannerContent.content, clickAction: bannerContent.clickAction))
             
             return bannerCell
             
-        case is LibraryBookSectionContent:
-            let bookContent = content as! LibraryBookSectionContent
+        case .bookCell(let bookContent):
             let bookInfo = bookContent.bookInfo
             let bookCell = collectionView.dequeueReusableCell(indexPath, cellType: LibraryBookCell.self)
             bookCell.apply(.init(coverUrl: bookInfo.coverUrl, titleText: bookInfo.name))
             
             return bookCell
-            
-        default:
-            fatalError("Unsupported section content: \(content.self)")
         }
     }
     
